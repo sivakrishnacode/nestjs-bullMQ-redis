@@ -12,13 +12,12 @@ export class AppService {
   }
 
   async test() {
-    setTimeout(async () => {
-      await this.testMQ.add({
+    for (let i = 0; i < 10; i++) {
+      await this.testMQ.add('TEST1', {
         data: `hello`,
-        ko: 'sassass',
       });
-    }, 2000);
+    }
 
-    return 'hii';
+    console.log(Date.now());
   }
 }
